@@ -1,6 +1,12 @@
-import { TABLE_DEFAULT_PAGE, TABLE_DEFAULT_SIZE } from "@/config";
+import {
+  REDIS_CACHE_EXPIRY,
+  TABLE_DEFAULT_PAGE,
+  TABLE_DEFAULT_SIZE,
+} from "@/config";
 import { advocates } from "@/db/schema";
 import { db } from "@/db/setup";
+import redis from "@/lib/redis";
+import Logger from "@/utils/logger";
 import { eq, sql } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -42,6 +48,14 @@ export async function GET(request: NextRequest) {
   // Sanitize input: Remove any potentially harmful characters
   const sanitizedSearch = search.replace(/[^a-zA-Z0-9\s]/g, "");
 
+  const cacheKey = `advocates:${sanitizedSearch}:${page}:${pageSize}`;
+  const cachedData = await redis.get(cacheKey);
+
+  if (cachedData) {
+    Logger.success(`🚀 Return from redis cache for key: ${cacheKey}`);
+    return NextResponse.json(JSON.parse(cachedData));
+  }
+
   const searchCondition = getSearchCondition(sanitizedSearch);
 
   // Query to fetch paginated data
@@ -65,6 +79,8 @@ export async function GET(request: NextRequest) {
 
   const response = { data, total };
 
+  await redis.set(cacheKey, JSON.stringify(response), "EX", REDIS_CACHE_EXPIRY);
+
   return NextResponse.json(response);
 }
 
@@ -72,6 +88,8 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
 
   await db.insert(advocates).values(body);
+
+  await redis.flushdb();
 
   return NextResponse.json({ message: "Advocate added and cache invalidated" });
 }
@@ -82,6 +100,8 @@ export async function PUT(request: NextRequest) {
 
   await db.update(advocates).set(updateData).where(eq(advocates.id, id));
 
+  await redis.flushdb();
+
   return NextResponse.json({
     message: "Advocate updated and cache invalidated",
   });
@@ -91,6 +111,8 @@ export async function DELETE(request: NextRequest) {
   const { id } = await request.json();
 
   await db.delete(advocates).where(eq(advocates.id, id));
+
+  await redis.flushdb();
 
   return NextResponse.json({
     message: "Advocate deleted and cache invalidated",

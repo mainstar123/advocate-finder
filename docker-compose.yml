@@ -9,6 +9,12 @@ services:
     volumes:
       - psql:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
 volumes:
   psql:
