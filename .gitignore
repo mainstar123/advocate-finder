@@ -34,3 +34,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# redis
+dump.rdb
+appendonly.aof
+
+# Cypress 
+cypress/screenshots/
+
+# SWC
+.swc/

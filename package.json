@@ -11,10 +11,13 @@
     "db:migrate:push": "drizzle-kit push",
     "db:seed": "ts-node -P tsconfig.cjs.json ./src/db/seed.ts",
     "lint": "next lint",
-    "test": "jest",
-    "test:watch": "jest --watch",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "e2e:open": "cypress open",
+    "e2e:run": "cypress run",
+    "ci": "npm run lint && npm run format && npm run test && npm run e2e:run",
     "prepare": "husky"
   },
   "dependencies": {
@@ -39,6 +42,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "concurrently": "^9.1.2",
+    "cypress": "^14.2.0",
     "drizzle-kit": "^0.30.5",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.5",
