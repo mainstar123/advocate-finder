@@ -1,6 +1,6 @@
-import db from "../../../db";
+import db from "../../../db/setup";
 import { advocates } from "../../../db/schema";
-import { advocateData } from "../../../db/seed/advocates";
+import { advocateData } from "../../../db/mock/advocates";
 
 export async function POST() {
   const records = await db.insert(advocates).values(advocateData).returning();
