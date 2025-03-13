@@ -1,0 +1,44 @@
+# Run Cypress End-to-End Tests
+name: Run Cypress E2E Tests
+
+# on:
+#   push:
+#     branches:
+#       - main
+#       - dev
+#   pull_request:
+#     branches:
+#       - main
+#       - dev
+
+on:
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_DB: testdb
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpassword
+        options: --health-cmd="pg_isready -U testuser -d testdb" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        run: npm run e2e:run
