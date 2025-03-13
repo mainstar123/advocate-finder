@@ -3,3 +3,6 @@ npm run lint
 
 # Run Prettier check
 npm run format
+
+# Run tests
+npm test
