@@ -25,11 +25,11 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const page = parseInt(
     searchParams.get("page") || `${TABLE_DEFAULT_PAGE}`,
-    10
+    10,
   );
   const pageSize = parseInt(
     searchParams.get("pageSize") || `${TABLE_DEFAULT_SIZE}`,
-    10
+    10,
   );
   const search = searchParams.get("search") || "";
 
@@ -41,7 +41,7 @@ export async function GET(request: NextRequest) {
         error:
           "Invalid input: Only alphanumeric characters and spaces are allowed.",
       },
-      { status: 400 }
+      { status: 400 },
     );
   }
 

@@ -8,7 +8,7 @@ interface SpecialtyTagProps {
 const SpecialtyTag = ({ specialty }: SpecialtyTagProps) => {
   const { backgroundColor, textColor } = useMemo(
     () => generateColorFromString(specialty),
-    [specialty]
+    [specialty],
   );
 
   return (

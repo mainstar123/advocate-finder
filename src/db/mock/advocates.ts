@@ -32,7 +32,7 @@ function randomSpecialty() {
   const start = Math.floor(Math.random() * specialties.length);
   const end = Math.min(
     start + Math.floor(Math.random() * (specialties.length - start)),
-    specialties.length
+    specialties.length,
   );
   return [start, end];
 }
