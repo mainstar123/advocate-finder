@@ -1,0 +1,34 @@
+# Heroku Deployment Action Setup
+name: Deploy to Heroku
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# Trigger the workflow manually
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Login to Heroku
+        run: |
+          echo "${{ secrets.HEROKU_API_KEY }}" | heroku auth:token
+          heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
+
+      - name: Deploy to Heroku
+        run: git push heroku main --force

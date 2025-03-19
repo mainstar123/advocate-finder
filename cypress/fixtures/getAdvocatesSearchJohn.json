@@ -1,0 +1,149 @@
+{
+  "data": [
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "city": "Chicago",
+      "degree": "MSW",
+      "specialties": [
+        "Obsessive-compulsive disorders",
+        "Neuropsychological evaluations & testing (ADHD testing)",
+        "Attention and Hyperactivity (ADHD)",
+        "Sleep issues",
+        "Schizophrenia and psychotic disorders"
+      ],
+      "yearsOfExperience": 5,
+      "phoneNumber": 5554567890,
+      "createdAt": "2025-03-06T16:24:27.347Z"
+    },
+    {
+      "id": 22,
+      "firstName": "John",
+      "lastName": "Lee",
+      "city": "Los Angeles",
+      "degree": "PhD",
+      "specialties": [
+        "Neurology",
+        "Pediatrics",
+        "Psychiatry",
+        "Oncology",
+        "Dermatology",
+        "Orthopedics"
+      ],
+      "yearsOfExperience": 14,
+      "phoneNumber": 2567373416,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 27,
+      "firstName": "Sarah",
+      "lastName": "Johnson",
+      "city": "San Diego",
+      "degree": "PhD",
+      "specialties": ["Oncology", "Dermatology", "Orthopedics"],
+      "yearsOfExperience": 16,
+      "phoneNumber": 7138178277,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 28,
+      "firstName": "James",
+      "lastName": "Johnson",
+      "city": "Los Angeles",
+      "degree": "MSW",
+      "specialties": [
+        "Cardiology",
+        "Neurology",
+        "Pediatrics",
+        "Psychiatry",
+        "Oncology"
+      ],
+      "yearsOfExperience": 4,
+      "phoneNumber": 3337121304,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 37,
+      "firstName": "John",
+      "lastName": "Taylor",
+      "city": "San Jose",
+      "degree": "PhD",
+      "specialties": ["Oncology"],
+      "yearsOfExperience": 5,
+      "phoneNumber": 7826562209,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 54,
+      "firstName": "John",
+      "lastName": "Lee",
+      "city": "Jacksonville",
+      "degree": "PhD",
+      "specialties": [],
+      "yearsOfExperience": 14,
+      "phoneNumber": 6238395125,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 72,
+      "firstName": "Jane",
+      "lastName": "Johnson",
+      "city": "Dallas",
+      "degree": "MD",
+      "specialties": [
+        "Cardiology",
+        "Neurology",
+        "Pediatrics",
+        "Psychiatry",
+        "Oncology",
+        "Dermatology"
+      ],
+      "yearsOfExperience": 19,
+      "phoneNumber": 9471850682,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 74,
+      "firstName": "John",
+      "lastName": "Johnson",
+      "city": "San Antonio",
+      "degree": "MSW",
+      "specialties": [
+        "Cardiology",
+        "Neurology",
+        "Pediatrics",
+        "Psychiatry",
+        "Oncology",
+        "Dermatology",
+        "Orthopedics"
+      ],
+      "yearsOfExperience": 1,
+      "phoneNumber": 8423586308,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 76,
+      "firstName": "Jessica",
+      "lastName": "Johnson",
+      "city": "Fort Worth",
+      "degree": "PhD",
+      "specialties": ["Oncology"],
+      "yearsOfExperience": 15,
+      "phoneNumber": 6444031833,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    },
+    {
+      "id": 79,
+      "firstName": "Daniel",
+      "lastName": "Johnson",
+      "city": "San Diego",
+      "degree": "PhD",
+      "specialties": [],
+      "yearsOfExperience": 8,
+      "phoneNumber": 8791412328,
+      "createdAt": "2025-03-07T05:34:44.171Z"
+    }
+  ],
+  "total": 126
+}

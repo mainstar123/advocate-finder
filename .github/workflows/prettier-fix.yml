@@ -1,0 +1,26 @@
+# Prettier Format Fix (Auto-Fix Formatting Issues)
+name: Prettier Fix
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Prettier Fix
+        run: npm run format:fix
